@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',   #django-rest-framework
     'authorize',    # 用户认证模块
     'userinfo',     # 用户信息模块
+    'diary',        # 日记模块，用于读写日记
 ]
 
 MIDDLEWARE = [
