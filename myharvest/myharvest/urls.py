@@ -20,5 +20,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^authorize/',include('authorize.urls')),
+    url(r'^userinfo/',include('userinfo.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')), # browsable API 的 login URL
 ]

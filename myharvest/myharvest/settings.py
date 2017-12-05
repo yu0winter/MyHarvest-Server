@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',   #django-rest-framework
     'authorize',    # 用户认证模块
+    'userinfo',     # 用户信息模块
 ]
 
 MIDDLEWARE = [
