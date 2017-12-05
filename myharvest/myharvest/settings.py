@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',#django-rest-framework
+    'rest_framework',   #django-rest-framework
+    'authorize',    # 用户认证模块
 ]
 
 MIDDLEWARE = [
