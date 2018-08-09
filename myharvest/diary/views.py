@@ -1,9 +1,8 @@
-
+# -*- coding:utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpRequest,HttpResponse
 from .models import Diary
-# from django.core.context_processors import csrf 文件异常
-from django.template.context_processors  import csrf
+from django.template.context_processors import csrf
 
 
 def getDiaryDetail(request):
