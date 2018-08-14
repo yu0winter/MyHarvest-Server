@@ -22,7 +22,8 @@
             "debugOptions": [
                 "RedirectOutput"
             ],
-            "port": 3589
+            // "port": 8001, 无效行
+            "host": "127.0.0.1"
         },
     ]
 }
