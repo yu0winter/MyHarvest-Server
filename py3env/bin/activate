@@ -40,7 +40,11 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/niuyulong/Desktop/MyHarvest/MyHarvest-Server/py3env"
+# VIRTUAL_ENV="/Users/niuyulong/Desktop/Code/MyHarvest-Server/py3env"
+# 使用了该文件后，激活虚拟环境就不能使用source命令。
+# 而需要执行如下命令：
+# 1.bash .../py3env/bin/activate 或 ..../py3env/bin/activate 这两种命令等效
+VIRTUAL_ENV=$(cd `dirname $0`;cd ..; pwd)
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
