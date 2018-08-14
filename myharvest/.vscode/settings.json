@@ -1,0 +1,13 @@
+{
+    // "git.ignoreLimitWarning": true
+    "python.pythonPath": "${workspaceFolder}/../py3env/bin/python",
+    "python.linting.pylintEnabled": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/*.pyc": true,
+        "**/.DS_Store": true,
+        "**/__pycache__":true,
+    }
+}
