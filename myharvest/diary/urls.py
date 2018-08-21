@@ -7,6 +7,6 @@ from . import views
 urlpatterns = [
     #
     url(r'^[0-9]{1,9}', views.getDiaryDetail),
-    url(r'^list/', views.getDiarylist),
+    url(r'^list', views.getDiarylist),
     url(r'^create',views.createDiary)
 ]

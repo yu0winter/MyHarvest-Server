@@ -10,7 +10,11 @@ def logout(request):
     return HttpResponse("logout")
 
 def register(request):
-    return HttpResponse("register")
+    # Post 
+
+
+
+    return HttpResponse("{\"register\":\"successed\"}")
 
 def changepassword(request):
     return HttpResponse("changepassword")

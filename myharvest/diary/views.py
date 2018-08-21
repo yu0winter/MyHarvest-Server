@@ -1,20 +1,34 @@
 # -*- coding:utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpRequest,HttpResponse
+from django.http import HttpRequest, HttpResponse
 from .models import Diary
 from django.template.context_processors import csrf
 
 
 def getDiaryDetail(request):
-    list = Diary.objects.all()
-    print (list.count())
 
+    if request.method == 'GET':
 
-    diaryID = request.path_info.split('/')[-1]
-    return HttpResponse("getDiaryDetailByID:%s" % (diaryID))
+        diaryID = request.path_info.split('/')[-1]
+        aDiary = Diary.objects.get(id=diaryID)
+        if aDiary:
+            html = "<p>"+"ID:" + str(aDiary.id) + " Title:" + \
+                aDiary.title + " Content:" + aDiary.content + "</p>"
+            return HttpResponse(html)
+        else:
+            return HttpResponse("NotFound")
+    return HttpResponse("error")
+
 
 def getDiarylist(request):
-    return HttpResponse("getDiarylist")
+
+    list = Diary.objects.all()
+
+    html = ""
+    for aDiary in list:
+        html += "<p>"+"ID:" + str(aDiary.id) + " Title:" + \
+            aDiary.title + " Content:" + aDiary.content + "</p>"
+    return HttpResponse(html)
 
 
 # def investigate(request):
@@ -29,13 +43,16 @@ def getDiarylist(request):
 #     return render(request, "investigate.html", ctx)
 
 
-def createDiary(reqeust):
+def createDiary(request):
 
-    aDiary = Diary(title="我是标题",content="今天做了什么事情呢？？？")
-    aDiary.save()
+    if request.method == 'POST':
+        title = request.POST["title"]
+        content = request.POST["content"]
 
-
-    ctx = {}
-    ctx.update(csrf(request))
-
-    return HttpResponse("createDiary")
+        aDiary = Diary(title="我是标题", content="今天做了什么事情呢？？？")
+        aDiary.save()
+        html += "<p> 保存成功\n"+"ID:" + \
+            str(aDiary.id) + " Title:" + aDiary.title + \
+            " Content:" + aDiary.content + "</p>"
+        return HttpResponse(html)
+    return HttpResponse("createDiary  failed")
